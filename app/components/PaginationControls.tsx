@@ -12,7 +12,7 @@ const PaginationControls: React.FC<PaginationControlsProps> = ({
   totalPages,
 }) => {
   return (
-    <div className="flex items-center justify-center my-6 space-x-4" >
+    <div className="flex items-center justify-center mt-7 space-x-4" >
       <button
         className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 ${
           currentPage === 1

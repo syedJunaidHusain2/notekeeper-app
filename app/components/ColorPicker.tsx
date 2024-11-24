@@ -1,8 +1,9 @@
-import { useState } from "react";
 import { MdOutlineColorLens } from "react-icons/md";
 
 type ColorPickerProps = {
   onColorSelect: (color: string) => void;
+  isTrayOpen: boolean;
+  setIsTrayOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const ColorPicker: React.FC<ColorPickerProps> = ({
@@ -10,7 +11,8 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
   isTrayOpen,
   setIsTrayOpen,
 }) => {
-  const colors = ["#fef08a", "#86efac", "#93c5fd", "#fca5a5", "#eab308"];
+  // List of colors available for selection
+  const colors = ["#fef08a", "#86efac", "#fca5a5", "#eab308", "#ffff"];
 
   return (
     <div className="relative inline-block">
@@ -34,8 +36,8 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
               style={{ backgroundColor: color }}
               onClick={(e) => {
                 e.stopPropagation();
-                onColorSelect(color); // Notify parent of the selected color
-                setIsTrayOpen(false); // Close tray
+                onColorSelect(color);
+                setIsTrayOpen(false);
               }}
             ></div>
           ))}
