@@ -5,7 +5,7 @@ import NoteCard from "../components/NoteCard";
 import NoteModal from "../components/NoteModal";
 import Loader from "../components/Loader";
 import { fetchNotes, saveNote, deleteNote } from "../services/noteService";
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
 import PaginationControls from "../components/PaginationControls";
 
 const ITEMS_PER_PAGE = 6;
