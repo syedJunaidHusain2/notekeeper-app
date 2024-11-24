@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Loader from "./Loader";
+import { toast } from "react-toastify";
 
 interface NoteModalProps {
   note: Note | null;
@@ -15,7 +16,7 @@ export default function NoteModal({ note, onClose, onSave }: NoteModalProps) {
 
   const handleSubmit = async () => {
     if (!title || !tagline || !body) {
-      alert("All fields are required.");
+      toast.error("All fields are required.");
       return;
     }
 
@@ -27,11 +28,11 @@ export default function NoteModal({ note, onClose, onSave }: NoteModalProps) {
         tagline,
         body,
         pinned: note?.pinned || false,
-        choosenColor : note?.choosenColor || "#fffff",
+        choosenColor: note?.choosenColor || "#fffff",
       });
       onClose();
     } catch (error) {
-      alert("Failed to save the note. Please try again.");
+      toast.error("Failed to save the note. Please try again.");
     } finally {
       setIsSaving(false);
     }

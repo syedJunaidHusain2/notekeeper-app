@@ -119,7 +119,7 @@ export default function NotesPage() {
   const totalPages = Math.ceil(sortedNotes.length / ITEMS_PER_PAGE);
 
   return (
-    <div className="p-6 h-screen flex flex-col justify-between bg-purple-200">
+    <div className="p-6 h-screen flex flex-col justify-between bg-slate-50">
         <h1 className="text-2xl font-bold mb-4">Notes</h1>
         <div className="mx-auto md:w-6/12 p-4 pt-0 border rounded-lg shadow-lg bg-white mb-5 cursor-pointer transform transition-transform duration-300 ease-in-out hover:scale-105">
           {!selectedNote && isModalOpen ? (
