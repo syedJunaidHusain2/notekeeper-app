@@ -5,7 +5,6 @@ import NoteCard from "../components/NoteCard";
 import NoteModal from "../components/NoteModal";
 import Loader from "../components/Loader";
 import { fetchNotes, saveNote, deleteNote } from "../services/noteService";
-import { toast } from "react-toastify";
 import PaginationControls from "../components/PaginationControls";
 
 const ITEMS_PER_PAGE = 6;
@@ -24,7 +23,8 @@ export default function NotesPage() {
         const fetchedNotes = await fetchNotes();
         setNotes(fetchedNotes);
       } catch (error) {
-        toast.error("Failed to load notes. Please try again.");
+        // TODO: Add sooner
+        // toast.error("Failed to load notes. Please try again.");
       } finally {
         setIsLoading(false);
       }
@@ -38,11 +38,13 @@ export default function NotesPage() {
       const updatedNotes = await saveNote(note);
       setNotes(updatedNotes);
       setIsModalOpen(false);
-      toast.success(
-        note.id ? "Note updated successfully!" : "Note added successfully!"
-      );
+      // TODO: Add sooner
+      // toast.success(
+      //   note.id ? "Note updated successfully!" : "Note added successfully!"
+      // );
     } catch (error) {
-      toast.error("Failed to save the note. Please try again.");
+      // TODO: Add sooner
+      // toast.error("Failed to save the note. Please try again.");
     } finally {
       setIsLoading(false);
     }
@@ -61,11 +63,12 @@ export default function NotesPage() {
 
       const updatedNotes = notes.map((n) => (n.id === id ? updatedNote : n));
       setNotes(updatedNotes);
-
-      toast.success("Note pin status updated!");
+      // TODO: Add sooner
+      // toast.success("Note pin status updated!");
     } catch (error) {
       console.error("Error updating pin status:", error);
-      toast.error("Failed to update pin status. Please try again.");
+      // TODO: Add sooner
+      // toast.error("Failed to update pin status. Please try again.");
     } finally {
       setIsLoading(false);
     }
@@ -83,11 +86,12 @@ export default function NotesPage() {
 
       const updatedColors = notes.map((n) => (n.id === id ? updatedColor : n));
       setNotes(updatedColors);
-
-      toast.success("Color status updated!");
+      // TODO: Add sooner
+      // toast.success("Color status updated!");
     } catch (error) {
       console.error("Error updating color status:", error);
-      toast.error("Failed to update color status. Please try again.");
+      // TODO: Add sooner
+      // toast.error("Failed to update color status. Please try again.");
     } finally {
       setIsLoading(false);
     }
@@ -98,9 +102,11 @@ export default function NotesPage() {
     try {
       const updatedNotes = await deleteNote(id);
       setNotes(updatedNotes);
-      toast.success("Note deleted successfully!");
+      // TODO: Add sooner
+      // toast.success("Note deleted successfully!");
     } catch (error) {
-      toast.error("Failed to delete the note. Please try again.");
+      // TODO: Add sooner
+      // toast.error("Failed to delete the note. Please try again.");
     } finally {
       setIsLoading(false);
     }
