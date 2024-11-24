@@ -10,13 +10,13 @@ import {
 } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBIVKzHquJd8BisVbIpBg9ens3qVQxsyd8",
-  authDomain: "ecowiser-notepad.firebaseapp.com",
-  projectId: "ecowiser-notepad",
-  storageBucket: "ecowiser-notepad.firebasestorage.app",
-  messagingSenderId: "599158945839",
-  appId: "1:599158945839:web:f3fc403615e35d6ba52eda",
-  measurementId: "G-SY5HNK7KYJ",
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
 const app = initializeApp(firebaseConfig);
