@@ -4,9 +4,10 @@ import { useNotes } from "../hooks/useNotes";
 import NotesHeader from "../components/NotesHeader";
 import AddNoteBar from "../components/AddNoteBar";
 import NotesGrid from "../components/NotesGrid";
-import NoteModal from "../components/NoteModal";
+import NoteModal from "../components/NoteInput";
 import Loader from "../components/Loader";
 import PaginationControls from "../components/PaginationControls";
+import NoNotesPlaceholder from "../components/NoNotesPlaceholder";
 
 const ITEMS_PER_PAGE = 6;
 
@@ -42,43 +43,49 @@ export default function NotesPage() {
           addOrEditNote={addOrEditNote}
         />
 
-        {isLoading ? (
-          <div className="w-full mx-auto">
-            <Loader />
-          </div>
+        {notes.length > 0 ? (
+          <>
+            {isLoading ? (
+              <div className="w-full mx-auto">
+                <Loader />
+              </div>
+            ) : (
+              <NotesGrid
+                notes={paginatedNotes}
+                onEdit={(note) => {
+                  setSelectedNote(note);
+                  setIsModalOpen(true);
+                }}
+                onPinToggle={(id) =>
+                  updateNote(id, {
+                    pinned: !notes.find((n) => n.id === id)?.pinned,
+                  })
+                }
+                onColorTheme={(id, color) =>
+                  updateNote(id, { choosenColor: color })
+                }
+                onDelete={deleteNoteById}
+              />
+            )}
+
+            {/* Note Modal */}
+            {selectedNote && isModalOpen && (
+              <NoteModal
+                note={selectedNote}
+                onClose={() => setIsModalOpen(false)}
+                onSave={addOrEditNote}
+              />
+            )}
+
+            <PaginationControls
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+              totalPages={totalPages}
+            />
+          </>
         ) : (
-          <NotesGrid
-            notes={paginatedNotes}
-            onEdit={(note) => {
-              setSelectedNote(note);
-              setIsModalOpen(true);
-            }}
-            onPinToggle={(id) =>
-              updateNote(id, {
-                pinned: !notes.find((n) => n.id === id)?.pinned,
-              })
-            }
-            onColorTheme={(id, color) =>
-              updateNote(id, { choosenColor: color })
-            }
-            onDelete={deleteNoteById}
-          />
+          <NoNotesPlaceholder />
         )}
-
-        {/* Note Modal */}
-        {selectedNote && isModalOpen && (
-          <NoteModal
-            note={selectedNote}
-            onClose={() => setIsModalOpen(false)}
-            onSave={addOrEditNote}
-          />
-        )}
-
-        <PaginationControls
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-          totalPages={totalPages}
-        />
       </div>
     </div>
   );

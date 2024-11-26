@@ -1,3 +1,4 @@
+import NoNotesPlaceholder from "./NoNotesPlaceholder";
 import NoteCard from "./NoteCard";
 
 type Props = {

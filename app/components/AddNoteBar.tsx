@@ -1,4 +1,4 @@
-import NoteModal from "./NoteModal";
+import NoteModal from "./NoteInput";
 
 type Props = {
   isModalOpen: boolean;
