@@ -11,9 +11,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
   isTrayOpen,
   setIsTrayOpen,
 }) => {
-  // List of colors available for selection
-  const colors = ["#fef08a", "#86efac", "#fca5a5", "#eab308", "#ffff"];
-
+  const colors = ["#FFF6E9", "#FFFECB", "#F5EFFF", "#F5EFE6", "#FFFFFF"];
   return (
     <div className="relative inline-block">
       <button
@@ -21,7 +19,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
           e.stopPropagation();
           setIsTrayOpen((prev) => !prev);
         }}
-        className="text-gray-700 hover:text-gray-900"
+        className="text-gray-600 hover:text-gray-900 mt-[2px]"
       >
         <MdOutlineColorLens size={17} />
       </button>

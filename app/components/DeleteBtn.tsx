@@ -5,7 +5,7 @@ type DeleteBtnProps = {
 const DeleteBtn: React.FC<DeleteBtnProps> = ({ handleClick }) => {
   return (
     <button
-      className="group relative flex h-10 w-8 flex-col items-center justify-center overflow-hidden"
+      className="group relative mt-[2px] flex h-10 w-8 flex-col items-center justify-center overflow-hidden"
       onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
         e.stopPropagation(); 
         handleClick(); 
@@ -13,7 +13,7 @@ const DeleteBtn: React.FC<DeleteBtnProps> = ({ handleClick }) => {
     >
       <svg
         viewBox="0 0 1.625 1.625"
-        className="absolute -top-7 fill-gray-500 delay-100 group-hover:top-4 group-hover:animate-[spin_1.4s] group-hover:duration-1000"
+        className="absolute -top-7 fill-[#2F3645] delay-100 group-hover:top-4 group-hover:animate-[spin_1.4s] group-hover:duration-1000"
         height="11"
         width="11"
       >
@@ -27,7 +27,7 @@ const DeleteBtn: React.FC<DeleteBtnProps> = ({ handleClick }) => {
         viewBox="0 0 39 7"
         className="origin-right duration-500 group-hover:rotate-90"
       >
-        <line strokeWidth="4" stroke="gray" y2="5" x2="39" y1="5"></line>
+        <line strokeWidth="4" stroke="#2F3645" y2="5" x2="39" y1="5"></line>
         <line
           strokeWidth="3"
           stroke="gray"
@@ -44,7 +44,7 @@ const DeleteBtn: React.FC<DeleteBtnProps> = ({ handleClick }) => {
         </mask>
         <path
           mask="url(#path-1-inside-1_8_19)"
-          fill="gray"
+          fill="#2F3645"
           d="M0 0H33H0ZM37 35C37 39.4183 33.4183 43 29 43H4C-0.418278 43 -4 39.4183 -4 35H4H29H37ZM4 43C-0.418278 43 -4 39.4183 -4 35V0H4V35V43ZM37 0V35C37 39.4183 33.4183 43 29 43V35V0H37Z"
         ></path>
         <path strokeWidth="4" stroke="gray" d="M12 6L12 29"></path>

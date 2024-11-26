@@ -8,12 +8,19 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        inter: ['"Poppins"', 'sans-serif'],
+      },
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        'gray-500': '#6B7280',  // Light gray for text 
+        'icon-grey': '#4B5563',  // Slightly darker gray for icons
+        'gray-800': '#1F2937',  // Dark gray for headers or important text
       },
       boxShadow: {
-        'custom-inset': 'inset 0px -11px 8px -10px #ffff',
+        'soft-lg': '0 4px 6px rgba(0, 0, 0, 0.05)', // Softer large shadow
+      },
+      scale: {
+        102: '1.02', 
       },
     },
   },

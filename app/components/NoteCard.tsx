@@ -24,7 +24,7 @@ export default function NoteCard({
 
   return (
     <div
-      className="relative mt-3 h-fit p-4 pb-2 border rounded shadow-sm cursor-pointer transform transition-transform duration-300 ease-in-out hover:scale-105"
+      className="relative mt-3 h-fit p-4 pb-2 border rounded-md shadow-sm cursor-pointer transform transition-transform duration-300 ease-in-out hover:scale-105"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => {
         setIsHovered(false);
@@ -58,10 +58,10 @@ export default function NoteCard({
 
         {/* Pin/Unpin Button */}
         <button
-          className={`px-2 py-1 mt-2 text-sm rounded  ${
+          className={`px-2 py-1 mt-1 text-sm rounded  ${
             note.pinned
-              ? "bg-yellow-200 text-yellow-700"
-              : `bg-gray-200 text-gray-700 transition-opacity duration-300 ${
+              ? "bg-slate-200 "
+              : `bg-gray-200 text-gray-600 transition-opacity duration-300 ${
                   !isHovered && "opacity-0"
                 }`
           }`}
@@ -75,9 +75,9 @@ export default function NoteCard({
       </div>
 
       {/* Note Content */}
-      <h2 className="font-bold text-lg mt-4">{note.title}</h2>
+      <h2 className="text-base font-medium mt-4 break-words">{note.title}</h2>
       <p className="text-sm text-gray-500">{note.tagline}</p>
-      <p className="mt-2 break-words">{note.body}</p>
+      <p className="text-sm mt-2 break-words max-h-72 overflow-y-auto">{note.body}</p>
     </div>
   );
 }
